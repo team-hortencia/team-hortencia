@@ -285,11 +285,11 @@
 			dataType: "json"
 		}).done(function(res){
 			var div = $('div.member-manager');
-				console.dir(res);
+				//console.dir(res);
 			for (var i = 0; i < res.length; i++) {
 				var member = res[i];
 				if ("マネージャー" == member.degree){
-					console.dir(member);
+					//console.dir(member);
 					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
 					var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 					var figure = $('<figure>').appendTo(article);
@@ -316,7 +316,7 @@
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
 					if ("コモンメンバー" == member.degree){
-						console.dir(member);
+						//console.dir(member);
 						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
 						var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
