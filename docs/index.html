@@ -44,72 +44,6 @@
 	<link rel="stylesheet" href="css/flickity.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-	<script src="http://vjs.zencdn.net/5.4.6/video.min.js"></script>
-	<!-- jQuery local fallback -->
-	<script src="js/min/bootstrap.min.js"></script>
-	<script src="js/min/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="js/min/retina.min.js"></script>
-	<script src="js/min/jquery.waypoints.min.js"></script>
-	<script src="js/min/flickity.pkgd.min.js"></script>
-	<script src="js/min/scripts-min.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-				type: "GET",
-				dataType: "json"
-			}).done(function(res){
-				var div = $('div.member-manager');
-					//console.dir(res);
-				for (var i = 0; i < res.length; i++) {
-					var member = res[i];
-					if ("マネージャー" == member.degree){
-						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
-						var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
-						var figure = $('<figure>').appendTo(article);
-						$('<figcaption class="overlay">').appendTo(figure)
-							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-							.append('<p>'+ member.message +'</p>');
-					}
-				}
-			}).fail(function(){
-				alert("チームメンバーを読み込めませんでした。");
-			});
-		});
-
-		function more_member() {
-			$('#btn-member-more').attr('onclick','none');
-			$('#btn-member-more').slideUp();
-			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-				type: "GET",
-				dataType: "json"
-			}).done(function(res){
-				var div = $('div.member-common');
-				for (var i = 0; i < res.length; i++) {
-					var member = res[i];
-					if ("コモンメンバー" == member.degree){
-						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
-						var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
-						var figure = $('<figure>').appendTo(article);
-						$('<figcaption class="overlay">').appendTo(figure)
-							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-							.append('<p>'+ member.message +'</p>');
-					}
-				}
-			}).fail(function(){
-				alert("チームメンバーを読み込めませんでした。");
-			});
-		}
-	</script>
 </head>
 
 <body>
@@ -257,8 +191,8 @@
 					</article>
 				</div>
 				<!-- この中身js生成 -->
-				<div class="member-manager"></div>
-				<div class="member-common"></div>
+				<div class="member-manager" style="cursor: pointer;"></div>
+				<div class="member-common" style="cursor: pointer;"></div>
 				<!-- ここまでjs生成 -->
 			</div>
 			<div class="row is-centered">
@@ -331,9 +265,74 @@
 	</footer>
 	<!-- END SECTION: Footer -->
 	<!-- JS CDNs -->
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+	<script src="http://vjs.zencdn.net/5.4.6/video.min.js"></script>
+	<!-- jQuery local fallback -->
+	<script>
+	window.jQuery || document.write('<script src="js/min/jquery-1.11.2.min.js"><\/script>')
+	</script>
 	<!-- JS Locals -->
+	<script src="js/min/bootstrap.min.js"></script>
+	<script src="js/min/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="js/min/retina.min.js"></script>
+	<script src="js/min/jquery.waypoints.min.js"></script>
+	<script src="js/min/flickity.pkgd.min.js"></script>
+	<script src="js/min/scripts-min.js"></script>
+	<script type="text/javascript">
+		$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+			type: "GET",
+			dataType: "json"
+		}).done(function(res){
+			var div = $('div.member-manager');
+				//console.dir(res);
+			for (var i = 0; i < res.length; i++) {
+				var member = res[i];
+				if ("マネージャー" == member.degree){
+					//console.dir(member);
+					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+					var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
+					var figure = $('<figure>').appendTo(article);
+					$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
+						.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+						.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+						.append('<p>'+ member.message +'</p>');
+				}
+			}
+		}).fail(function(){
+			alert("チームメンバーを読み込めませんでした。");
+		});
 
+		function more_member() {
+			$('#btn-member-more').attr('onclick','none');
+			$('#btn-member-more').slideUp();
+			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+				type: "GET",
+				dataType: "json"
+			}).done(function(res){
+				var div = $('div.member-common');
+				for (var i = 0; i < res.length; i++) {
+					var member = res[i];
+					if ("コモンメンバー" == member.degree){
+						//console.dir(member);
+						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
+						var figure = $('<figure>').appendTo(article);
+						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
+							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+							.append('<p>'+ member.message +'</p>');
+					}
+				}
+			}).fail(function(){
+				alert("チームメンバーを読み込めませんでした。");
+			});
+		}
+	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
 	<script>
