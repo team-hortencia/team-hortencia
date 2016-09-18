@@ -165,10 +165,19 @@
 					<h1>オルテンシア学園とは</h1>
 					<p>（チーム＝学園）（メンバー＝生徒）（マネージャー＝生徒会委員）（チームマスター＝生徒会長）として、 ＰＳＯ２の世界で、学園生活を楽しもうかなぁー、てなところが「オルテンシア学園」です。プレイヤーの個性を尊重し、プレイヤーをＰＳＯ２世界の、１人のキャラクターとします。それぞれのプレイヤーが、それぞれのプレイスタイルで楽しく遊べ、集える場所とします。一般生徒（コモンメンバー）以下には、一切の強制はしませんが、プレイヤーとしてのマナーは、もちましょう。</p>
 					<p>※ チームイベントの開催、チームトロフィーの取得など、今は、（2013.8/15現在）考えてません。</p>
-					<!--<h1></h1>
-					<p>私、ARERE（チームマスター）が、気楽に「仲間」と過ごす為に設立したチームです。 AREREは、チームマスターらしい仕事はあまり得意じゃないし、しないとおもいます。 チームは、「仲間」が自然と出来て「仲間」が、チームだとおもってます。｢オルテンシア学園」も、いろんな人が入学して、卒業していくでしょう この先どうなるのかは解りません「仲間」次第だとおもってます。</p> -->
+				</div>
+				<div class="row is-centered">
+					<a class="btn secondary view-more" id="btn-intro-more" style="margin: 20px;" onclick="$('#body-intoro-more').slideToggle();">more</a>
+				</div>
+				<div class="col-md-3"></div>
+				<div class="col-md-9" id="body-intoro-more" style="display: none;">
+					<div>
+						<h1></h1>
+						<p>私、ARERE（チームマスター）が、気楽に「仲間」と過ごす為に設立したチームです。 AREREは、チームマスターらしい仕事はあまり得意じゃないし、しないとおもいます。 チームは、「仲間」が自然と出来て「仲間」が、チームだとおもってます。｢オルテンシア学園」も、いろんな人が入学して、卒業していくでしょう この先どうなるのかは解りません「仲間」次第だとおもってます。</p>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</section>
 	<!-- END SECTION: Intro -->
@@ -194,11 +203,11 @@
 				</div>
 				<!-- この中身js生成 -->
 				<div class="member-manager" style="cursor: pointer;"></div>
-				<div class="member-common" style="cursor: pointer;"></div>
+				<div class="member-common" id="body-member-more" style="cursor: pointer; display: none;"></div>
 				<!-- ここまでjs生成 -->
 			</div>
 			<div class="row is-centered">
-				<a class="btn secondary view-more" id="btn-member-more" style="margin: 20px;" onclick="more_member();">more</a>
+				<a class="btn secondary view-more" id="btn-member-more" style="margin: 20px;" onclick="$('#body-member-more').slideToggle();">more</a>
 			</div>
 		</div>
 	</section>
@@ -302,17 +311,6 @@
 							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
-			}).fail(function(){
-				alert("チームメンバーを読み込めませんでした。");
-			});
-		});
-		function more_member() {
-			$('#btn-member-more').attr('onclick','none');
-			$('#btn-member-more').slideUp();
-			$.getJSON('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-				type: "GET",
-				dataType: "json"
-			}).done(function(res){
 				var div = $('div.member-common');
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
@@ -332,7 +330,7 @@
 			}).fail(function(){
 				alert("チームメンバーを読み込めませんでした。");
 			});
-		}
+		});
 	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
