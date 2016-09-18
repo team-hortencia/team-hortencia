@@ -267,7 +267,7 @@
 		</div>
 	</footer>
 	<!-- END SECTION: Footer -->
-	<!-- JS CDNs 
+	<!-- JS CDNs
 	<script src="https://vjs.zencdn.net/5.4.6/video.min.js"></script>
 	<!-- jQuery local fallback -->
 	<script>
@@ -281,42 +281,18 @@
 	<script src="js/min/flickity.pkgd.min.js"></script>
 	<script src="js/min/scripts-min.js"></script>
 	<script type="text/javascript">
-		$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-			type: "GET",
-			dataType: "json"
-		}).done(function(res){
-			var div = $('div.member-manager');
-				//console.dir(res);
-			for (var i = 0; i < res.length; i++) {
-				var member = res[i];
-				if ("マネージャー" == member.degree){
-					//console.dir(member);
-					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
-					var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
-					var figure = $('<figure>').appendTo(article);
-					$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-						.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-						.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-						.append('<p>'+ member.message +'</p>');
-				}
-			}
-		}).fail(function(){
-			alert("チームメンバーを読み込めませんでした。");
-		});
-
-		function more_member() {
-			$('#btn-member-more').attr('onclick','none');
-			$('#btn-member-more').slideUp();
+		(function($){
 			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
 				type: "GET",
-				dataType: "json"
+				data : data,
+				dataType: "json",
+				scriptCharset: 'utf-8'
 			}).done(function(res){
-				var div = $('div.member-common');
+				var div = $('div.member-manager');
+					//console.dir(res);
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
-					if ("コモンメンバー" == member.degree){
+					if ("マネージャー" == member.degree){
 						//console.dir(member);
 						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
@@ -332,7 +308,35 @@
 			}).fail(function(){
 				alert("チームメンバーを読み込めませんでした。");
 			});
-		}
+
+			function more_member() {
+				$('#btn-member-more').attr('onclick','none');
+				$('#btn-member-more').slideUp();
+				$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+					type: "GET",
+					dataType: "json"
+				}).done(function(res){
+					var div = $('div.member-common');
+					for (var i = 0; i < res.length; i++) {
+						var member = res[i];
+						if ("コモンメンバー" == member.degree){
+							//console.dir(member);
+							var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+							var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
+							var figure = $('<figure>').appendTo(article);
+							$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
+								.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+								.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+								.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+								.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+								.append('<p>'+ member.message +'</p>');
+						}
+					}
+				}).fail(function(){
+					alert("チームメンバーを読み込めませんでした。");
+				});
+			}
+		}(jQuery))
 	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
