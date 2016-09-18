@@ -292,9 +292,7 @@
 		$(window).load(function(){
 			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
 				type: "GET",
-				dataType: "json",
-				async: false,
-				cashe: true
+				dataType: "json"
 			}).done(function(res){
 				var div = $('div.member-manager');
 				console.dir(res);
