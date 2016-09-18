@@ -133,13 +133,14 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<h1 class="wp1">チームのコアタイム</h1>
-								<h2>22時から24時</h2>
+								<h1 class="wp1">チームメンバー</h1>
+								<a href="#team" class="btn primary wp2">Members</a>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 hero-intro-text wp3">
-								<p>いつでもいる人はいる</p>
+								<p>コアタイムは22時から24時</p>
+								<p>時間に関係なくいる人はいる</p>
 							</div>
 						</div>
 					</div>
@@ -201,12 +202,12 @@
 					</article>
 				</div>
 				<!-- この中身js生成 -->
-				<div class="member-list">
-				</div>
+				<div class="member-manager"></div>
+				<div class="member-common"></div>
 				<!-- ここまでjs生成 -->
 			</div>
 			<div class="row is-centered">
-				<a href="./member_list.html" class="btn secondary view-more">more</a>
+				<a class="btn secondary view-more" id="btn-member-more" style="margin: 20px;" onclick="more_member();">more</a>
 			</div>
 		</div>
 	</section>
@@ -294,14 +295,14 @@
 			type: "GET",
 			dataType: "json"
 		}).done(function(res){
-			var div = $('div.member-list');
+			var div = $('div.member-manager');
 			var mem_deg = "マネージャー";
 			for (var i = 0; i < res.length; i++) {
 				var member = res[i];
 				if (mem_deg == member.degree){
 					console.dir(member);
 					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
-					var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd; border-radius: 10px;">').appendTo(divcol);
+					var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 					var figure = $('<figure>').appendTo(article);
 					$('<figcaption class="overlay">').appendTo(figure)
 						.append('<h2>'+ member.id_name +'<h2>')
@@ -310,6 +311,31 @@
 				}
 			}
 		});
+
+		function more_member() {
+			$('#btn-member-more').attr('onclick','none');
+			$('#btn-member-more').slideUp();
+			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+				type: "GET",
+				dataType: "json"
+			}).done(function(res){
+				var div = $('div.member-common');
+				var mem_deg = "コモンメンバー";
+				for (var i = 0; i < res.length; i++) {
+					var member = res[i];
+					if (mem_deg == member.degree){
+						console.dir(member);
+						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
+						var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
+						var figure = $('<figure>').appendTo(article);
+						$('<figcaption class="overlay">').appendTo(figure)
+							.append('<h2>'+ member.id_name +'<h2>')
+							.append('<p>'+ member.degree +'</p>')
+							.append('<p>'+ member.message +'</p>');
+					}
+				}
+			});
+		}
 	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
