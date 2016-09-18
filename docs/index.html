@@ -311,10 +311,7 @@
 		function more_member() {
 			$('#btn-member-more').attr('onclick','none');
 			$('#btn-member-more').slideUp();
-			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-				type: "GET",
-				dataType: "json"
-			}).done(function(res){
+			$.getJSON('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', function(res){
 				var div = $('div.member-common');
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
@@ -331,8 +328,6 @@
 							.append('<p>'+ member.message +'</p>');
 					}
 				}
-			}).fail(function(){
-				alert("チームメンバーを読み込めませんでした。");
 			});
 		}
 	</script>
