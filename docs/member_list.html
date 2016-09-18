@@ -153,26 +153,27 @@
 					var article = $('<article class="crew-member" style="background-image: url('+ member.image +'); border-radius: 10px;">').appendTo(divcol);
 					var figure = $('<figure>').appendTo(article);
 					$('<figcaption class="overlay" style="background-color: #195b83;">').appendTo(figure)
-						.append('<h2>'+ member.id_name +'<h2>')
-						.append('<p>'+ member.degree +'</p>')
-						.append('<p>'+ member.job +'</p>')
-						.append('<p>'+ member.message +'</p>');
+					.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+					.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+					.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+					.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+					.append('<p>'+ member.message +'</p>');
 				} else {
 					console.dir(member);
 					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="margin-bottom: 20px;">').appendTo(divCom);
 					var article = $('<article class="crew-member" style="background-image: url('+ member.image +'); border-radius: 10px;">').appendTo(divcol);
 					var figure = $('<figure>').appendTo(article);
 					$('<figcaption class="overlay" style="background-color: #195b83;">').appendTo(figure)
-						.append('<h2>'+ member.id_name +'<h2>')
-						.append('<p>'+ member.degree +'</p>')
-						.append('<p>'+ member.job +'</p>')
-						.append('<p>'+ member.message +'</p>');
+					.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+					.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+					.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+					.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+					.append('<p>'+ member.message +'</p>');
 				}
 			}
 		}).fail(function(){
 			alert("チームメンバーを読み込めませんでした。");
-		})
-		;
+		});
 	</script>
 </body>
 

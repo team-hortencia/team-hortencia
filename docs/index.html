@@ -187,13 +187,6 @@
 							<!--ここに紹介を書く-->
 							<!-- 紹介ここまで -->
 						</div>
-						<!--<figure>
-							<figcaption class="overlay">
-								<h2>ARERE</h2>
-								<p>チームマスター</p>
-								<p>今はガンナーメイン?</p>
-							</figcaption>
-						</figure> -->
 					</article>
 				</div>
 				<!-- この中身js生成 -->
@@ -291,20 +284,24 @@
 			dataType: "json"
 		}).done(function(res){
 			var div = $('div.member-manager');
-			var mem_deg = "マネージャー";
+				console.dir(res);
 			for (var i = 0; i < res.length; i++) {
 				var member = res[i];
-				if (mem_deg == member.degree){
+				if ("マネージャー" == member.degree){
 					console.dir(member);
 					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
 					var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 					var figure = $('<figure>').appendTo(article);
 					$('<figcaption class="overlay">').appendTo(figure)
-						.append('<h2>'+ member.id_name +'<h2>')
-						.append('<p>'+ member.degree +'</p>')
+						.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+						.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
 						.append('<p>'+ member.message +'</p>');
 				}
 			}
+		}).fail(function(){
+			alert("チームメンバーを読み込めませんでした。");
 		});
 
 		function more_member() {
@@ -315,20 +312,23 @@
 				dataType: "json"
 			}).done(function(res){
 				var div = $('div.member-common');
-				var mem_deg = "コモンメンバー";
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
-					if (mem_deg == member.degree){
+					if ("コモンメンバー" == member.degree){
 						console.dir(member);
 						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
 						var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay">').appendTo(figure)
-							.append('<h2>'+ member.id_name +'<h2>')
-							.append('<p>'+ member.degree +'</p>')
+							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
 							.append('<p>'+ member.message +'</p>');
 					}
 				}
+			}).fail(function(){
+				alert("チームメンバーを読み込めませんでした。");
 			});
 		}
 	</script>
