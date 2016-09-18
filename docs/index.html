@@ -53,7 +53,7 @@
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/team-hortencia/">オルテンシア学園logo-img</a>
+					<a href="./index.html">オルテンシア学園logo-img</a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
@@ -177,7 +177,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="col-md-3 col-sm-6 col-xs-12" style="margin-bottom: 20px;">
 					<article class="crew-member" style="background-image: url(); background-color: #2d2d2d;">
 						<h2>no Image</h2>
 						<!--<figure>
@@ -189,7 +189,7 @@
 						</figure> -->
 					</article>
 				</div>
-				<div class="col-md-8 col-sm-6 col-xs-12">
+				<div class="col-md-8 col-sm-6 col-xs-12" style="margin-bottom: 20px;">
 					<article class="crew-member" style="border-radius: 12px; background-color: #dddddd;">
 						<div style="margin: 10px;">
 							<h1>ARERE</h1>
@@ -200,21 +200,13 @@
 						</div>
 					</article>
 				</div>
-				<!-- ここからjs生成する予定 -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<article class="crew-member" style="background-image: url(); background-color: #dddddd;">
-						<figure>
-							<figcaption class="overlay">
-								<h2>ワクワクP</h2>
-								<p>マネージャー</p>
-								<div class="crew-socials">
-
-								</div>
-							</figcaption>
-						</figure>
-					</article>
+				<!-- この中身js生成 -->
+				<div class="member-list">
 				</div>
 				<!-- ここまでjs生成 -->
+			</div>
+			<div class="row is-centered">
+				<a href="./member_list.html" class="btn secondary view-more">more</a>
 			</div>
 		</div>
 	</section>
@@ -297,6 +289,28 @@
 	<script src="js/min/jquery.waypoints.min.js"></script>
 	<script src="js/min/flickity.pkgd.min.js"></script>
 	<script src="js/min/scripts-min.js"></script>
+	<script type="text/javascript">
+		$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+			type: "GET",
+			dataType: "json"
+		}).done(function(res){
+			var div = $('div.member-list');
+			var mem_deg = "マネージャー";
+			for (var i = 0; i < res.length; i++) {
+				var member = res[i];
+				if (mem_deg == member.degree){
+					console.dir(member);
+					var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12">').appendTo(div);
+					var article = $('<article class="crew-member" style="background-image: url('+ member.image +');background-color: #dddddd; border-radius: 10px;">').appendTo(divcol);
+					var figure = $('<figure>').appendTo(article);
+					$('<figcaption class="overlay">').appendTo(figure)
+						.append('<h2>'+ member.id_name +'<h2>')
+						.append('<p>'+ member.degree +'</p>')
+						.append('<p>'+ member.message +'</p>');
+				}
+			}
+		});
+	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
 	<script>
