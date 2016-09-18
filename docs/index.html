@@ -307,35 +307,34 @@
 			}).fail(function(){
 				alert("チームメンバーを読み込めませんでした。");
 			});
-
-			function more_member() {
-				$('#btn-member-more').attr('onclick','none');
-				$('#btn-member-more').slideUp();
-				$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
-					type: "GET",
-					dataType: "json"
-				}).done(function(res){
-					var div = $('div.member-common');
-					for (var i = 0; i < res.length; i++) {
-						var member = res[i];
-						if ("コモンメンバー" == member.degree){
-							//console.dir(member);
-							var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
-							var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
-							var figure = $('<figure>').appendTo(article);
-							$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-								.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-								.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
-								.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-								.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-								.append('<p>'+ member.message +'</p>');
-						}
-					}
-				}).fail(function(){
-					alert("チームメンバーを読み込めませんでした。");
-				});
-			}
 		}(jQuery))
+		function more_member() {
+			$('#btn-member-more').attr('onclick','none');
+			$('#btn-member-more').slideUp();
+			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+				type: "GET",
+				dataType: "json"
+			}).done(function(res){
+				var div = $('div.member-common');
+				for (var i = 0; i < res.length; i++) {
+					var member = res[i];
+					if ("コモンメンバー" == member.degree){
+						//console.dir(member);
+						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
+						var figure = $('<figure>').appendTo(article);
+						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
+							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+							.append('<p>'+ member.message +'</p>');
+					}
+				}
+			}).fail(function(){
+				alert("チームメンバーを読み込めませんでした。");
+			});
+		}
 	</script>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
