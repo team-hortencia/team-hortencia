@@ -284,11 +284,10 @@
 		$(window).load(function(){
 			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
 				type: "GET",
-				dataType: "json",
-				scriptCharset: 'utf-8'
+				dataType: "json"
 			}).done(function(res){
 				var div = $('div.member-manager');
-					//console.dir(res);
+				console.dir(res);
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
 					if ("マネージャー" == member.degree){
@@ -298,7 +297,7 @@
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
 							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
 							.append('<p>'+ member.message +'</p>');
@@ -311,7 +310,10 @@
 		function more_member() {
 			$('#btn-member-more').attr('onclick','none');
 			$('#btn-member-more').slideUp();
-			$.getJSON('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', function(res){
+			$.getJSON('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
+				type: "GET",
+				dataType: "json"
+			}).done(function(res){
 				var div = $('div.member-common');
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
@@ -322,12 +324,14 @@
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
 							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-							.append('<h2 style="color: #fff;">'+ member.main_char +'</h2>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
 							.append('<p>'+ member.message +'</p>');
 					}
 				}
+			}).fail(function(){
+				alert("チームメンバーを読み込めませんでした。");
 			});
 		}
 	</script>
