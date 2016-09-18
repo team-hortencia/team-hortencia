@@ -281,7 +281,7 @@
 	<script src="js/min/flickity.pkgd.min.js"></script>
 	<script src="js/min/scripts-min.js"></script>
 	<script type="text/javascript">
-		(function($){
+		$(window).load(function(){
 			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
 				type: "GET",
 				dataType: "json",
@@ -307,7 +307,7 @@
 			}).fail(function(){
 				alert("チームメンバーを読み込めませんでした。");
 			});
-		}(jQuery))
+		});
 		function more_member() {
 			$('#btn-member-more').attr('onclick','none');
 			$('#btn-member-more').slideUp();
