@@ -267,8 +267,8 @@
 		</div>
 	</footer>
 	<!-- END SECTION: Footer -->
-	<!-- JS CDNs
-	<script src="https://vjs.zencdn.net/5.4.6/video.min.js"></script>
+	<!-- JS CDNs -->
+	<!-- <script src="https://vjs.zencdn.net/5.4.6/video.min.js"></script> -->
 	<!-- jQuery local fallback -->
 	<script>
 	window.jQuery || document.write('<script src="js/min/jquery-1.11.2.min.js"><\/script>')
@@ -296,11 +296,11 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
+							.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'<h1>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-							.append('<p>'+ member.message +'</p>');
+							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
 			}).fail(function(){
@@ -323,11 +323,11 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-							.append('<h1 style="color: #fff;">'+ member.id_name +'<h1>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-							.append('<p>'+ member.message +'</p>');
+						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'<h1>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+						.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
 			}).fail(function(){
