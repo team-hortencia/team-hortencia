@@ -195,11 +195,10 @@
 					<article class="crew-member" style="border-radius: 20px; background-color: #dddddd;">
 						<div class="col-md-12 col-sm-12 col-xs-12" style="padding: 10px; padding-left: 30px; padding-right: 30px;">
 							<h1>ARERE</h1>
-							<h2 style="color: black;">チームマスター</h2>
 							<p style="padding-bottom: 0px;">メインキャラ: Null・Arere</p>
 							<p style="padding-bottom: 0px;">サブキャラ: アインス・コッポラ</p>
 							<p style="padding-bottom: 0px;">職: GuFi</p>
-							<p style="padding: 10dpx;">PSが無くても、一線で活躍できる装備、スキルツリー攻略を考えるのが好きです。</p>
+							<p style="padding: 15px;">PSが無くても、一線で活躍できる装備、スキルツリー攻略を考えるのが好きです。</p>
 						</div>
 					</article>
 				</div>
@@ -213,7 +212,7 @@
 				<!-- ここまでjs生成 -->
 			</div>
 			<div class="row is-centered">
-				<a class="btn secondary view-more" id="btn-member-more" style="margin: 20px;" onclick="$('#body-member-more').slideToggle();">more</a>
+				<a class="btn secondary view-more" id="btn-member-more" style="margin: 20px;" onclick="$('#body-member-more').slideToggle();">Common Member</a>
 			</div>
 		</div>
 	</section>
@@ -310,11 +309,11 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">メインキャラ: '+ member.main_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">サブキャラ: '+ member.sub_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">職: '+ member.class +'</p>')
-						.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
+							.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">メインキャラ:</span> '+ member.main_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">サブキャラ:</span> '+ member.sub_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">職:</span> '+ member.class +'</p>')
+							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
 				var div = $('div.member-common');
@@ -326,11 +325,11 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">メインキャラ: '+ member.main_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">サブキャラ: '+ member.sub_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">職: '+ member.class +'</p>')
-						.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
+							.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">メインキャラ:</span> '+ member.main_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">サブキャラ:</span> '+ member.sub_char +'</p>')
+							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">職:</span> '+ member.class +'</p>')
+							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
 			}).fail(function(){
