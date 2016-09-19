@@ -328,7 +328,8 @@
 					}
 				}
 			}).fail(function(){
-				$('div.member-manager') =
+				var div = $('div.member-manager');
+				$('<div>').appendTo(div).append('Data could not be obtained .')
 			});
 		});
 	</script>
