@@ -190,21 +190,26 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12"><h1>Master</h1></div>
 				<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
 					<article class="crew-member" style="border-radius: 20px; background-color: #dddddd;">
 						<div class="col-md-12 col-sm-12 col-xs-12" style="padding: 10px; padding-left: 30px; padding-right: 30px;">
 							<h1>ARERE</h1>
 							<h2 style="color: black;">チームマスター</h2>
-							<p style="padding-bottom: 0px;">Null・Arere</p>
-							<p style="padding-bottom: 0px;">アインス・コッポラ</p>
-							<p style="padding-bottom: 0px;">GuFi</p>
-							<p style="padding: 10px;">PSが無くても、一線で活躍できる装備、スキルツリー攻略を考えるのが好きです。</p>
+							<p style="padding-bottom: 0px;">メインキャラ: Null・Arere</p>
+							<p style="padding-bottom: 0px;">サブキャラ: アインス・コッポラ</p>
+							<p style="padding-bottom: 0px;">職: GuFi</p>
+							<p style="padding: 10dpx;">PSが無くても、一線で活躍できる装備、スキルツリー攻略を考えるのが好きです。</p>
 						</div>
 					</article>
 				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12"><h1>Manager</h1></div>
 				<!-- この中身js生成 -->
 				<div class="member-manager" style="cursor: pointer;"></div>
-				<div class="member-common" id="body-member-more" style="cursor: pointer; display: none;"></div>
+				<div id="body-member-more" style="cursor: pointer; display: none;">
+					<div class="col-md-12 col-sm-12 col-xs-12"><h1>Common Member</h1></div>
+					<div class="member-common"></div>
+				</div>
 				<!-- ここまでjs生成 -->
 			</div>
 			<div class="row is-centered">
@@ -305,11 +310,11 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-							.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'<h1>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-							.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
-							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
+						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">メインキャラ: '+ member.main_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">サブキャラ: '+ member.sub_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">職: '+ member.class +'</p>')
+						.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
 				var div = $('div.member-common');
@@ -321,10 +326,10 @@
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url('+ member.image +');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
-						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'<h1>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.main_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.sub_char +'</p>')
-						.append('<p style="padding-top: 0px; padding-bottom: 0px;">'+ member.class +'</p>')
+						.append('<h1 style="color: #fff; font-size: 32px; padding-top: 0px; padding-bottom: 0px;">'+ member.id_name +'</h1>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">メインキャラ: '+ member.main_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">サブキャラ: '+ member.sub_char +'</p>')
+						.append('<p style="padding-top: 0px; padding-bottom: 0px;">職: '+ member.class +'</p>')
 						.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">'+ member.message +'</p>');
 					}
 				}
