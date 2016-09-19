@@ -293,6 +293,10 @@
 			$.ajax('https://script.google.com/macros/s/AKfycbxViLG7ob7dCgGVVNx_3pq44ot3OuoIA12MJNfnSSe5wi3e4lg/exec', {
 				type: "GET",
 				dataType: "json"
+				beforeSend : function( xhr ){
+					if (window.navigator.userAgent.toLowerCase().indexOf('safari') != -1)
+						xhr.setRequestHeader("If-Modified-Since", new Date().toUTCString());
+				}
 			}).done(function(res){
 				var div = $('div.member-manager');
 				console.dir(res);
@@ -328,7 +332,7 @@
 					}
 				}
 			}).fail(function(){
-				alert("チームメンバーを読み込めませんでした。");
+				console.log('error');
 			});
 		});
 	</script>
