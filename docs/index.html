@@ -318,7 +318,7 @@ Admission procedure</a>
 		$(window).load(function() {
 			$.ajax('https://script.google.com/macros/s/AKfycbziG2kojnItjSXCXSqgvFHPwQP2Chdsz3ZQv1pWP5f3-H7OFe2X/exec', {
 				type: "GET",
-				dataType: "jsonp"
+				dataType: "json"
 			}).done(function(res) {
 				var div = $('div.member-manager');
 				console.dir(res);
