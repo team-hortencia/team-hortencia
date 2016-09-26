@@ -1,0 +1,32 @@
+[home]
+top
+---
+Introduction
+==> introduction
+Member
+==> member
+Album
+==> album
+Admission
+==> admission
+Link
+==> link
+
+[introduction]
+オルテンシア学園とは
+
+[member]
+メンバー一覧
+
+[album]
+アルバムの最新画像
+---
+more
+==> アルバムの一覧
+
+[admission]
+入学手引き
+==> 入学手順
+
+[link]
+各種リンク
