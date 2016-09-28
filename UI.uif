@@ -22,11 +22,11 @@ Link
 アルバムの最新画像
 ---
 more
-==> アルバムの一覧
+={/album.html}=> アルバムの一覧
 
 [admission]
 入学手引き
-==> 入学手順
+={/admission.html}=> 入学手順
 
 [link]
 各種リンク
