@@ -212,12 +212,16 @@
 					<h1>Manager</h1>
 				</div>
 				<!-- この中身js生成 -->
-				<div class="member-manager" style="cursor: pointer;"></div>
+				<div class="member-manager" style="cursor: pointer;">
+
+				</div>
 				<div id="body-member-more" style="cursor: pointer; display: none;">
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<h1>Common Member</h1>
 					</div>
-					<div class="member-common"></div>
+					<div class="member-common">
+
+					</div>
 				</div>
 				<!-- ここまでjs生成 -->
 			</div>
@@ -322,13 +326,14 @@ Admission procedure</a>
 				type: "GET",
 				dataType: "json"
 			}).done(function(res) {
-				var div = $('div.member-manager');
+				var divm = $('div.member-manager');
+				var divc = $('div.member-common');
 				console.dir(res);
 				for (var i = 0; i < res.length; i++) {
 					var member = res[i];
 					if ("マネージャー" == member.degree) {
 						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divm);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url(' + member.image + ');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
@@ -337,14 +342,9 @@ Admission procedure</a>
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">サブキャラ:</span> ' + member.sub_char + '</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">クラス:</span> ' + member.class + '</p>')
 							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">' + member.message + '</p>');
-					}
-				}
-				var div = $('div.member-common');
-				for (var i = 0; i < res.length; i++) {
-					var member = res[i];
-					if ("コモンメンバー" == member.degree) {
+					} else {
 						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(div);
+						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divc);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url(' + member.image + ');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
@@ -357,7 +357,7 @@ Admission procedure</a>
 				}
 			}).fail(function() {
 				var div = $('div.member-manager');
-				$('<div class="col-md-12">').appendTo(div).append('<p>Data could not be obtained .</p>')
+				$('<div class="col-md-12">').appendTo(div).append('<p>Data could not be obtained .</p>');
 			});
 		});
 	</script>
