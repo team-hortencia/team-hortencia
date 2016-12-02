@@ -68,7 +68,7 @@
 							<li><a href="#intro">Introduction</a></li>
 							<li><a href="#team">Member</a></li>
 							<li><a href="#album">Album</a></li>
-														<li><a href="#Admission">Admission</a></li>
+							<li><a href="#Admission">Admission</a></li>
 							<li><a href="#link">Link</a></li>
 						</ul>
 					</nav>
@@ -342,7 +342,7 @@ Admission procedure</a>
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">サブキャラ:</span> ' + member.sub_char + '</p>')
 							.append('<p style="padding-top: 0px; padding-bottom: 0px;"><span style="color: #f2f2f2;">クラス:</span> ' + member.class + '</p>')
 							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">' + member.message + '</p>');
-					} else {
+					} else if ("コモンメンバー" == member.degree){
 						//console.dir(member);
 						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divc);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url(' + member.image + ');background-color: #dddddd;">').appendTo(divcol);
