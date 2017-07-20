@@ -361,7 +361,7 @@
 					var member = res[i];
 					if ("マネージャー" == member.degree) {
 						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divm);
+						var divcol = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divm);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url(' + member.image + ');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
@@ -372,7 +372,7 @@
 							.append('<p style="font-size: 12px; padding-top: 0px; padding-bottom: 0px;">' + member.message + '</p>');
 					} else if ("コモンメンバー" == member.degree){
 						//console.dir(member);
-						var divcol = $('<div class="col-md-3 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divc);
+						var divcol = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="cursor: pointer;">').appendTo(divc);
 						var article = $('<article class="crew-member" style="cursor: pointer; background-image: url(' + member.image + ');background-color: #dddddd;">').appendTo(divcol);
 						var figure = $('<figure>').appendTo(article);
 						$('<figcaption class="overlay" style="cursor: pointer;">').appendTo(figure)
